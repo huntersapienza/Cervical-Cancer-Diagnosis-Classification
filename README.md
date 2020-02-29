@@ -1,117 +1,45 @@
 
-# Module 3 Final Project
+# Cervical Cancer Risk Factor Analysis and Classification
 
 
 ## Introduction
 
-In this lesson, we'll review all the guidelines and specifications for the final project for Module 3.
-
 
 ## Objectives
 
-* Understand all required aspects of the Final Project for Module 3
-* Understand all required deliverables
-* Understand what constitutes a successful project
 
-## Final Project Summary
+## Process
 
-Congratulations! You've made it through another _intense_ module, and now you're ready to show off your newfound Machine Learning skills!
+Across the scope of the project, we touch upon various components of our data science process, depending on the research question at hand. However, the overall project from start to finish adheres to the OSEMN framework:
 
-<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-3-final-project/master/smart.gif'>
+1. Obtain
+2. Scrub
+3. Explore
+4. Model
+5. Interpret
 
-All that remains for Module 3 is to complete the final project!
+<img src='Images/OSEMN _framework.png'>
 
-## The Project
+## Summary
 
-For this project, you're going to select a dataset of your choosing and create a classification model. You'll start by identifying a problem you can solve with classification, and then identify a dataset. You'll then use everything you've learned about Data Science and Machine Learning thus far to source a dataset, preprocess and explore it, and then build and interpret a classification model that answers your chosen question.
+<img src='Images/dt.gif'>
 
+Based on our modeling results, the optimal model for further use was the decision tree classifier with parameters specified by utilizing GridSearch. While other models performed well, oftentimes with high levels of accuracy, or especially low counts of false negatives, this decision tree model performed with perfect accuracy with 0 counts of both false negatives and false positives.
 
-### Selecting a Data Set
+Other noteable models included the logistic regression classifiers developed using PCA-transformed data, with particularly high recall compared to most other models. Within the context of cancer classification, minimizing false negatives is highly prioritized, even over minimizing false positives. While receiving a positive diagnosis when you do not actually have cancer can be difficult emotionally, this results is much more preferred than a false negative which indicates a missed diagnosis for someone that actually has cancer and thus, will not receive treatment.
 
-We encourage you to be very thoughtful when identifying your problem and selecting your data set--an overscoped project goal or a poor data set can quickly bring an otherwise promising project to a grinding halt.
+In our exploration of the data prior to modeling, we discovered the following with regards to indications about the likelihood of cervical cancer:
+* The presence of IUDs, STDs, STDs: HIV, STDs: vulvo-perineal condylomatosis led to much higher likelihoods of positive biopsies.
+* The most impactful STD appears to be HIV. Women positive for HIV were over 18% more likely to be positive for the biopsy.
+* Prior diagnoses with certain dieases increased the likelihood of a cervical cancer diagnosis significantly: 35% for prior cancer, 36% for CIN, 32% for HPV.
+* Of our other methods potentially indicative of a cervical cancer diagnosis, Hinselmann and Schiller appear most correlated with our target, with 68% and 62% (respectively) of positive diagnoses also positive under the biopsy. Citology appears to be less accurate, with only 43% of positive cases also positive for the biopsy.
+* Smokers and women with IUDs are 4.1% more likely to have a positive cancer diagnosis.
+* The one woman with genital herpes was positive for the biopsy.
+* No positive cases exist for the following self-reported STDs: cervical condylomatosis, pelvic inflammatory disease, AIDS, and HPV.
 
-To help you select an appropriate data set for this project, we've set some guidelines:
+While Schiller and Hinselmann emerged as top predictors in nearly every test we ran, this data may not always be available as an initial variable for predictive use. Thus, future work involves the following:
+* Perform a multiclass classification model and analysis with 'Hinselmann', 'Schiller', 'Citology', and 'Biopsy' all utilized as target variables.
+* Compare models for classification between Hinselmann, Schiller, Citology, and Biopsy, with each as a separate target variable.
+* Create classification models for Biopsy in the absence of the other three diagnoses.
 
-
-1. Your dataset should work for classification. The classification task can be either binary or multi-categorical, as long as it's a classification model.   
-
-2. Your dataset needs to be of sufficient complexity. Try to avoid picking an overly simple dataset. We want to see all the steps of the Data Science Process in this project--it's okay if the dataset is mostly clean, but we expect to see some preprocessing and exploration. See the following section, **_Data Set Constraints_**, for more information on this.   
-
-3. On the other end of the spectrum, don't pick a problem that's too complex, either. Stick to problems that you have a clear idea of how you can use machine learning to solve it. For now, we recommend you stay away from overly complex problems in the domains of Natural Language Processing or Computer Vision--although those domains make use of Supervised Learning, they come with a lot of other special requirements and techniques that you don't know yet (but you'll learn soon!). If you're chosen problem feels like you've overscoped, then it probably is. If you aren't sure if your problem scope is appropriate, double check with your instructor!
-
-4. **_Serious Bonus Points_** if some or all of the data is data you have to source yourself through web scraping or interacting with a 3rd party API! Having projects that show off your ability to source data effectively make you look that much more impressive when showing your work off to potential employers!
-
-### Data Set Constraints
-
-When selecting a data set, be sure to take into consideration the following constraints:
-
-1. Your data set can't be one we've already worked with in any labs. 
-2. Your data set should contain a minimum of 1000 rows.    
-3. Your data set should contain a minimum of 10 predictor columns, before any one-hot encoding is performed.   
-4. Your instructor must provide final approval on your data set. 
-
-### Problem First, or Data First?
-
-There are two ways that you can about getting started: **_Problem-First_** or **_Data-First_**. 
-
-**_Problem-First_**: Start with a problem that you want to solve with classification, and then try to find the data you need to solve it. If you can't find any data to solve your problem, then you should pick another problem. 
-
-**_Data-First_**: Take a look at some of the most popular internet repositories of cool data sets we've listed below. If you find a data set that's particularly interesting for you, then it's totally okay to build your problem around that data set. 
-
-There are plenty of amazing places that you can get your data from. We recommend you start looking at data sets in some of these resources first:
-
-* [UCI Machine Learning Datasets Repository](https://archive.ics.uci.edu/ml/datasets.html)
-* [Kaggle Datasets](https://www.kaggle.com/datasets)
-* [Awesome Datasets Repo on Github](https://github.com/awesomedata/awesome-public-datasets)
-* [New York City Open Data Portal](https://opendata.cityofnewyork.us/)
-* [Inside AirBNB ](http://insideairbnb.com/)
-
-
-## The Deliverables
-
-There will be four deliverables for this project:
-
-1. A well documented **Jupyter Notebook** containing any code you've written for this project and comments explaining it. This work will need to be pushed to your GitHub repository in order to submit your project.   
-
-2. A short **Keynote/PowerPoint/Google Slides presentation** (delivered as a PDF export) that gives a brief overview of your problem/dataset, and each step of the OSEMN process. Make sure to also add and commit this pdf of your non-technical presentation to your repository with a file name of presentation.pdf.
-
-3. A **blog post** (800-1500 words) about one element of the project - it could be the EDA, the feature selection, the choice of visualizations or anything else technical relating to the project. It should be targeted at your peers - aspiring data scientists.  
-
-4. A **Video Walkthrough** of your non-technical presentation. Some common video recording tools used are Zoom, Quicktime, and Nimbus. After you record your presentation, publish it on a service like YouTube or Google Drive, you will need a link to the video to submit your project.
-
-
-### Jupyter Notebook Must-Haves
-
-For this project, your jupyter notebook should meet the following specifications:
-
-**_Organization/Code Cleanliness_**
-
-* The notebook should be well organized, easy to follow, and code is commented where appropriate.  
-    * Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code. All functions have docstrings that act as professional-quality documentation.  
-* The notebook is written to technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
-
-**_Process, Methodology, and Findings_**
-
-* Your notebook should contain a clear record of your process and methodology for exploring and preprocessing your data, building and tuning a model, and interpreting your results.
-* We recommend you use the OSEMN process to help organize your thoughts and stay on track.
-
-
-### Blog Post Must-Haves
-
-Your blog post should clearly explain your process and results, including:
-* An explanation of the problem you're trying to solve and the dataset you choose for it
-* Well documented examples of code and visualizations (when appropriate)
-
-
-**_NOTE:_**  This blog post is your way of showcasing the work you've done on this project--chances are it will soon be read by a recruiter or hiring manager! Take the time to make sure that you craft your story well, and clearly explain your process and findings in a way that clearly shows both your technical expertise **_and_** your ability to communicate your results!
-
-## Submitting your Project
-
-You’re almost done! In order to submit your project for review, include the following links to your work in the corresponding fields on the right-hand side of Learn.
-
-1. **GitHub Repo:** Now that you’ve completed your project in Jupyter Notebooks, push your work to GitHub and paste that link to the right. (If you need help doing so, review the resources [here](https://docs.google.com/spreadsheets/d/1CNGDhjcQZDRx2sWByd2v-mgUOjy13Cd_hQYVXPuzEDE/edit#gid=0).)
-_Reminder: Make sure to also add and commit a pdf of your non-technical presentation to the repository with a file name of presentation.pdf._
-2. **Blog Post:** Include a link to your blog post.
-3. **Record Walkthrough:** Include a link to your video walkthrough.
-
-Hit "I'm done" to wrap it up. You will receive an email in order to schedule your review with your instructor.
+Additionally, this dataset draws upon patients solely in Venezuela, where the particular patient care and hospital conditions may lead to the significance of certain factors over others, that may be different than in other countries. In future work, it would be ideal to pull data from other Latin American and South American countries to see what similarities and differences exist, as well as to perform comparsion against data from other parts of the world as well, such as the United States, Europe, Africa, etc. Without a greater diversity of data, it will prove difficult to extend our findings for use in any greater medical context.
