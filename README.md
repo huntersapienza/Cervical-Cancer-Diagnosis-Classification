@@ -30,7 +30,7 @@ Across the scope of the project, we touch upon various components of our data sc
 
 ## Summary
 
-<img src='final_model_results.png'>
+<img src='final_model.png'>
 
 Based on our modeling results, the optimal model for further use was the decision tree classifier with parameters specified by utilizing GridSearch. While other models performed well, oftentimes with high levels of accuracy, or especially low counts of false negatives, this decision tree model performed with perfect accuracy with 0 counts of both false negatives and false positives.
 
@@ -49,7 +49,7 @@ In our exploration of the data prior to modeling, we discovered the following wi
 
 <img src='Images/risk_factors.png'>
 
-Based on the top ris factors identified above, our recommendations for best approaching cervical cancer diagnoses are as follows:
+Based on the top risk factors identified above, our recommendations for best approaching cervical cancer diagnoses are as follows:
 * Increased HIV and HPV prevention measures
 * Proactive STD testing and treatment
 * Regular testing for susceptible women (based on the history of highest priority risk factors identified)
