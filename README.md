@@ -30,7 +30,7 @@ Across the scope of the project, we touch upon various components of our data sc
 
 ## Summary
 
-<img src='final_model.png'>
+<img src='Images/model_results.png'>
 
 Based on our modeling results, the optimal model for further use was the decision tree classifier with parameters specified by utilizing GridSearch. While other models performed well, oftentimes with high levels of accuracy, or especially low counts of false negatives, this decision tree model performed with perfect accuracy with 0 counts of both false negatives and false positives.
 
