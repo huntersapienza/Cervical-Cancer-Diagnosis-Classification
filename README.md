@@ -4,9 +4,17 @@
 
 ## Introduction
 
+In the following project, we analyze the data with a focus on which risk factors appear to most significantly lead to positive biopsies for cervical cancer. Additionally, we aim to identify a model that most effectively classifies cases of cervical cancer based upon these risk factors. To achieve these goals, we will employ the OSEMN (obtain, scrub, explore, model, and analyze) data science model
+
+The data utilized throughout this project was obtained from medical records of 858 women in Caracas, Venezuela at Hospital Universitario de Caracas.
+
+<img src='Images/hospital.png'>
 
 ## Objectives
 
+Throughout this project we will aim to answer the following questions through exploratory analysis and machine learning:
+* What risk factors most significantly correlate with positive biopsies for cervical cancer?
+* Which classification model performs most accurately while minimizing false negatives?
 
 ## Process
 
@@ -22,6 +30,8 @@ Across the scope of the project, we touch upon various components of our data sc
 
 ## Summary
 
+<img src='final_model_results.png'>
+
 Based on our modeling results, the optimal model for further use was the decision tree classifier with parameters specified by utilizing GridSearch. While other models performed well, oftentimes with high levels of accuracy, or especially low counts of false negatives, this decision tree model performed with perfect accuracy with 0 counts of both false negatives and false positives.
 
 <img src='Images/dt.gif' align="middle">
@@ -36,6 +46,14 @@ In our exploration of the data prior to modeling, we discovered the following wi
 * Smokers and women with IUDs are 4.1% more likely to have a positive cancer diagnosis.
 * The one woman with genital herpes was positive for the biopsy.
 * No positive cases exist for the following self-reported STDs: cervical condylomatosis, pelvic inflammatory disease, AIDS, and HPV.
+
+<img src='Images/risk_factors.png'>
+
+Based on the top ris factors identified above, our recommendations for best approaching cervical cancer diagnoses are as follows:
+* Increased HIV and HPV prevention measures
+* Proactive STD testing and treatment
+* Regular testing for susceptible women (based on the history of highest priority risk factors identified)
+* Thorough medical screening for these risk factors
 
 While Schiller and Hinselmann emerged as top predictors in nearly every test we ran, this data may not always be available as an initial variable for predictive use. Thus, future work involves the following:
 * Perform a multiclass classification model and analysis with 'Hinselmann', 'Schiller', 'Citology', and 'Biopsy' all utilized as target variables.
